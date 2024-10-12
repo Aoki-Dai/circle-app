@@ -66,10 +66,11 @@
                                                     </svg>
                                                 </button>
                                                 <span id="like-count-{{ $entry->id }}" class="inline-flex items-center py-1 pr-3 ml-auto mr-3 text-sm leading-none text-gray-400 border-r-2 border-gray-200 lg:ml-auto md:ml-0">
-                                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                                    {{-- <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                                         <circle cx="12" cy="12" r="3"></circle>
-                                                    </svg>{{ $entry->likes_count }}
+                                                    </svg> --}}
+                                                    {{ $entry->likes_count }}
                                                 </span>
                                               </div>
                                             </div>
