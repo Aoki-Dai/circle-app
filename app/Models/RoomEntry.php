@@ -15,4 +15,14 @@ class RoomEntry extends Model
         'entry_time',
         'exit_time',
     ];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function getLikesCountAttribute()
+    {
+        return $this->likes()->count();
+    }
 }
