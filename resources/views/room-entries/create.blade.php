@@ -12,15 +12,15 @@
                     @csrf
                     <div>
                         <x-label for="user_id" :value="__('User ID')" />
-                        <x-input id="user_id" class="block w-full mt-1" type="text" name="user_id" required autofocus />
+                        <x-input id="user_id" class="block w-full mt-1" type="text" name="user_id" value="{{ Auth::user()->id }}" required autofocus readonly />
                     </div>
                     <div class="mt-4">
                         <x-label for="user_name" :value="__('User Name')" />
-                        <x-input id="user_name" class="block w-full mt-1" type="text" name="user_name" required />
+                        <x-input id="user_name" class="block w-full mt-1" type="text" name="user_name" value="{{ Auth::user()->name }}" required readonly />
                     </div>
                     <div class="mt-4">
                         <x-label for="entry_time" :value="__('Entry Time')" />
-                        <x-input id="entry_time" class="block w-full mt-1" type="datetime-local" name="entry_time" required />
+                        <x-input id="entry_time" class="block w-full mt-1" type="datetime-local" name="entry_time" value="{{ \Carbon\Carbon::now()->setTimezone('Asia/Tokyo')->format('Y-m-d\TH:i') }}" required />
                     </div>
                     <div class="mt-4">
                         <x-label for="exit_time" :value="__('Exit Time')" />
