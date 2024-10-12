@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\RoomEntry;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class RoomEntryController extends Controller
 {
     public function index()
     {
-        $entries = RoomEntry::all();
+        $entries = RoomEntry::all()->map(function ($entry) {
+            $entry->entry_time = Carbon::parse($entry->entry_time);
+            return $entry;
+        });
+
         return view('room-entries.index', compact('entries'));
     }
 

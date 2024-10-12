@@ -9,7 +9,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <div class="mx-4 my-4">
-                    <a href="{{ route('room-entries.create') }}" class="inline-block px-4 py-2 font-semibold text-white transition duration-300 ease-in-out transform bg-blue-500 rounded hover:bg-blue-700 hover:scale-105">鍵を借りた、部室に行ったらタップ！</a>
+                    <a href="{{ route('room-entries.create') }}" class="inline-block px-4 py-2 font-semibold text-white transition duration-300 ease-in-out transform bg-blue-500 rounded hover:bg-blue-700 hover:scale-105">鍵を借りたor部室に行ったらタップ！</a>
                 </div>
                 <div class="mt-4 overflow-x-auto">
                     <table class="w-full table-auto">
@@ -55,6 +55,7 @@
                                               </h1>
                                               <p class="mb-3 leading-relaxed">
                                                 {{ $entry->entry_time }}
+                                                ({{ $entry->entry_time->diffForHumans() }})
                                               </p>
                                               <div class="flex flex-wrap items-center ">
                                                 {{-- <a class="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0">Learn More
