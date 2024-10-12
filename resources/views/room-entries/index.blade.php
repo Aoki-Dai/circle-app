@@ -55,7 +55,7 @@
                                               </h1>
                                               <p class="mb-3 leading-relaxed">
                                                 {{ $entry->entry_time }}
-                                                ({{ $entry->entry_time->diffForHumans() }})
+                                                ({{ $entry->entry_time->setTimezone('Asia/Tokyo')->diffForHumans() }})
                                               </p>
                                               <div class="flex flex-wrap items-center">
                                                 <button class="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0" onclick="likeEntry({{ $entry->id }})">
