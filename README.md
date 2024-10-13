@@ -5,6 +5,8 @@
 - いまいくボタンでサークルに積極参加できる
 # 発表・展示
 - 【技育展2024】一回戦を突破し、二回戦に登壇
+  - [発表資料](
+  https://www.canva.com/design/DAGTVkBrVs0/WU5tDMFu3Gdgk4qLuytyOw/view?utm_content=DAGTVkBrVs0&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 - 大学祭で展示
 # 開発の背景
 サークルのグループLINEで入室管理（鍵の管理）をすると、サークルの連絡と混ざってしまう、いま部室に誰がいるか分かりにくい、いま部室にいる人数が分かりにくいという課題があったため。
