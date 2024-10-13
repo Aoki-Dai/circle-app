@@ -1,4 +1,29 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![サークルなう](https://i.imgur.com/89eliwz.jpg)
+# アプリの特徴
+- ボタンを押して簡単入室処理
+- 誰がいま部室にいるか分かる
+- いまいくボタンでサークルに積極参加できる
+# 開発の背景
+サークルのグループLINEで入室管理（鍵の管理）をすると、サークルの連絡と混ざってしまう、いま部室に誰がいるか分かりにくい、いま部室にいる人数が分かりにくいという課題があったため。
+# 技術スタック
+- Laravel
+- Jetstream
+- node.js
+- Tailwind CSS
+- MySQL
+## モックアップ制作
+- figma
+# 今後の展望
+- デプロイして、アプリをみんなが使えるようにする。
+- QRコードやNFCタグでの入室処理機能を実装する。
+## 追加機能の案
+- LINEとの連携
+  - 通知機能
+  - メッセージで入室処理
+- 利用統計情報の表示
+
+
+<!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -63,4 +88,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
