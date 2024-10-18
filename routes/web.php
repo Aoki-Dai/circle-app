@@ -18,6 +18,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect()->route('room-entries.index');
     })->name('dashboard');
 });
