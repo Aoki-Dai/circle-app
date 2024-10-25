@@ -50,13 +50,17 @@
                                             {{-- <img class="object-cover object-center w-full lg:h-48 md:h-36" src="https://dummyimage.com/722x402" alt="blog"> --}}
                                             <div class="p-6">
                                               {{-- <h2 class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">CATEGORY</h2> --}}
-                                              <h1 class="mb-3 text-lg font-medium text-gray-900 title-font">
-                                                {{ $entry->user_name }}
-                                              </h1>
-                                              <p class="mb-3 leading-relaxed">
-                                                {{ $entry->entry_time }}
-                                                ({{ $entry->entry_time->setTimezone('Asia/Tokyo')->diffForHumans() }})
-                                              </p>
+                                                <div>
+                                                    <h1 class="mb-3 text-lg font-medium text-gray-900 title-font">
+                                                        <a href="{{ route('room-entries.show', $entry) }}" class="hover:underline">
+                                                            {{ $entry->user_name }}
+                                                        </a>
+                                                    </h1>
+                                                    <p class="mb-3 leading-relaxed">
+                                                        {{ $entry->entry_time }}
+                                                        ({{ $entry->entry_time->setTimezone('Asia/Tokyo')->diffForHumans() }})
+                                                    </p>
+                                                </div>
                                               <div class="flex flex-wrap items-center">
                                                 <button class="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0" onclick="likeEntry({{ $entry->id }})">
                                                     いまいく
