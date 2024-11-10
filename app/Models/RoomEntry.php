@@ -16,6 +16,7 @@ class RoomEntry extends Model
         'exit_time',
     ];
 
+    // RoomEntryモデルとLikeモデルの1対多のリレーションを定義する
     public function likes()
     {
         return $this->hasMany(Like::class);
