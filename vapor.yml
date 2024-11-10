@@ -2,6 +2,7 @@ id: 67088
 name: circle-app
 environments:
     production:
+        database: my-application-db
         memory: 1024
         cli-memory: 512
         runtime: 'php-8.3:al2'
