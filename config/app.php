@@ -11,6 +11,9 @@ return [
     | framework needs to place the application's name in a notification or
     | other UI elements where an application name needs to be displayed.
     |
+    | この値はアプリケーションの名前です。
+    | フレームワークがアプリケーションの名前を通知や
+    | その他のUI要素にアプリケーション名を表示する必要があるときに使われます。
     */
 
     'name' => env('APP_NAME', 'サークルなう'),
