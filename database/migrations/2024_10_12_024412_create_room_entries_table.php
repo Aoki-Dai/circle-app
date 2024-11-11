@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('exit_time')->nullable();
             $table->timestamps();
 
+            // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// crudのルーティングを追加
 Route::resource('room-entries', RoomEntryController::class);
 
 Route::post('likes', [LikeController::class, 'store'])->name('likes.store');
