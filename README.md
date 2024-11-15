@@ -12,14 +12,15 @@
 サークルのグループLINEで入室管理（鍵の管理）をすると、サークルの連絡と混ざってしまう、いま部室に誰がいるか分かりにくい、いま部室にいる人数が分かりにくいという課題があったため。
 # 技術スタック
 - Laravel
-- Jetstream
+- Laravel Jetstream
+- vite
 - node.js
 - Tailwind CSS
 - MySQL
+- Laravel vapor（LaravelをAWS Lambda上で動作）
 ## モックアップ制作
 - figma
 # 今後の展望
-- デプロイして、アプリをみんなが使えるようにする。
 - QRコードやNFCタグでの入室処理機能を実装する。
 ## 追加機能の案
 - LINEとの連携
