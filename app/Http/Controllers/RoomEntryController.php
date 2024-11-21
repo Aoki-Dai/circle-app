@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RoomEntry;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class RoomEntryController extends Controller
 {
@@ -26,12 +27,17 @@ class RoomEntryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required|exists:users,id',
+            // 'user_id' => 'required|exists:users,id',
             'user_name' => 'required|string|max:255',
             'entry_time' => 'required|date',
         ]);
 
-        RoomEntry::create($request->all());
+        RoomEntry::create([
+            'user_id' => Auth::id(),
+            'user_name' => $request->user_name,
+            'entry_time' => $request->entry_time,
+            'exit_time' => $request->exit_time,
+        ]);
 
         return redirect()->route('room-entries.index');
     }

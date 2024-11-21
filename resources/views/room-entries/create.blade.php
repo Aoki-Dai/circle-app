@@ -10,13 +10,13 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <form action="{{ route('room-entries.store') }}" method="POST">
                     @csrf
-                    <div>
+                    {{-- <div>
                         <x-label for="user_id" :value="__('User ID')" />
-                        <x-input id="user_id" class="block w-full mt-1" type="text" name="user_id" value="{{ Auth::user()->id }}" required autofocus />
-                    </div>
+                        <x-input id="user_id" class="block w-full mt-1" type="hidden" name="user_id" value="{{ Auth::user()->id }}" required autofocus />
+                    </div> --}}
                     <div class="mt-4">
                         <x-label for="user_name" :value="__('User Name')" />
-                        <x-input id="user_name" class="block w-full mt-1" type="text" name="user_name" value="{{ Auth::user()->name }}" required />
+                        <x-input id="user_name" class="block w-full mt-1" type="text" name="user_name" value="{{ Auth::user()->name }}" required readonly/>
                     </div>
                     <div class="mt-4">
                         <x-label for="entry_time" :value="__('Entry Time')" />
