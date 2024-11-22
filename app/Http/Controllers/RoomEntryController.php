@@ -11,7 +11,7 @@ class RoomEntryController extends Controller
 {
     public function index()
     {
-        $entries = RoomEntry::all()->map(function ($entry) {
+        $entries = RoomEntry::orderBy('entry_time', 'desc')->get()->map(function ($entry) {
             $entry->entry_time = Carbon::parse($entry->entry_time);
             return $entry;
         });
