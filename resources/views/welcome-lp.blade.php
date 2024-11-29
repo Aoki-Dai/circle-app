@@ -61,7 +61,32 @@
                     <section class="py-20 text-center bg-gradient-to-r">
                         <h2 class="text-5xl font-bold text-black dark:text-white">部室の状況をリアルタイムで管理</h2>
                         <p class="mt-4 text-lg text-black dark:text-white">入室管理アプリ【サークルなう】でサークル活動を効率化しましょう。</p>
-                        <a href="{{ route('register') }}" class="inline-block px-6 py-3 mt-8 font-semibold text-black transition bg-white rounded-md shadow-lg hover:ring-black/20 dark:bg-zinc-900 dark:text-white dark:shadow-zinc-700 dark:hover:bg-zinc-800">今すぐ始める</a>
+
+                        @if (Route::has('login'))
+                            @auth
+                                <a
+                                    href="{{ url('/dashboard') }}"
+                                    class="inline-block px-6 py-3 mt-8 font-semibold text-black transition bg-white rounded-md shadow-lg hover:ring-black/20 dark:bg-zinc-900 dark:text-white dark:shadow-zinc-700 dark:hover:bg-zinc-800"
+                                >
+                                    {{-- Dashboard --}}
+                                    今すぐダッシュボードへ
+                                </a>
+                            @else
+                                @if (Route::has('register'))
+                                    <a
+                                        href="{{ route('register') }}"
+                                        class="inline-block px-6 py-3 mt-8 font-semibold text-black transition bg-white rounded-md shadow-lg hover:ring-black/20 dark:bg-zinc-900 dark:text-white dark:shadow-zinc-700 dark:hover:bg-zinc-800"
+                                    >
+                                        {{-- Register --}}
+                                        今すぐ始める
+                                    </a>
+                                @endif
+                            @endauth
+                        @endif
+
+                        {{-- <a href="{{ route('register') }}" class="inline-block px-6 py-3 mt-8 font-semibold text-black transition bg-white rounded-md shadow-lg hover:ring-black/20 dark:bg-zinc-900 dark:text-white dark:shadow-zinc-700 dark:hover:bg-zinc-800">
+                            今すぐ始める
+                        </a> --}}
                     </section>
 
                     <main class="mt-6">
