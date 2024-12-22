@@ -29,10 +29,22 @@
                                                             {{ $entry->user_name }}
                                                         </a>
                                                     </h1>
-                                                    <p class="mb-3 leading-relaxed">
-                                                        {{ $entry->entry_time }}
+                                                    <p class="mb-1 leading-relaxed">
+                                                        <span class="font-medium">入室：</span>
+                                                        {{ $entry->entry_time->setTimezone('Asia/Tokyo')->format('m/d H:i') }}
                                                         ({{ $entry->entry_time->setTimezone('Asia/Tokyo')->diffForHumans() }})
                                                     </p>
+                                                    @if ($entry->exit_time)
+                                                        <p class="mb-3 leading-relaxed text-gray-500">
+                                                            <span class="font-medium">退出：</span>
+                                                            {{ $entry->exit_time->setTimezone('Asia/Tokyo')->format('m/d H:i') }}
+                                                            ({{ $entry->exit_time->setTimezone('Asia/Tokyo')->diffForHumans() }})
+                                                        </p>
+                                                    @else
+                                                        <p class="mb-3 leading-relaxed text-gray-500">
+                                                            現在部室にいます
+                                                        </p>
+                                                    @endif
                                                 </div>
                                               <div class="flex flex-wrap items-center">
                                                 <button class="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0" onclick="likeEntry({{ $entry->id }})">

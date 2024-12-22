@@ -16,6 +16,11 @@ class RoomEntry extends Model
         'exit_time',
     ];
 
+    protected $casts = [
+        'entry_time' => 'datetime',
+        'exit_time' => 'datetime',
+    ];
+
     // RoomEntryモデルとLikeモデルの1対多のリレーションを定義する
     public function likes()
     {
