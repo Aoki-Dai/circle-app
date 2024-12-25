@@ -115,7 +115,7 @@
                     </main>
 
                     <footer class="py-16 text-sm text-center text-black dark:text-white/70">
-                        サークルなう v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                        <small>&copy;2024 Dai Aoki</small>
                     </footer>
                 </div>
             </div>
