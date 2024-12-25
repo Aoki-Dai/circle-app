@@ -47,7 +47,10 @@
                                                     @endif
                                                 </div>
                                               <div class="flex flex-wrap items-center">
-                                                <button class="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0" onclick="likeEntry({{ $entry->id }})">
+                                                <button
+                                                    class="inline-flex items-center {{ $entry->isLikedByUser(Auth::id()) ? 'text-pink-500' : 'text-indigo-500' }} md:mb-2 lg:mb-0"
+                                                    onclick="toggleLike({{ $entry->id }}, this)"
+                                                >
                                                     いまいく
                                                     <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path d="M5 12h14"></path>
@@ -78,7 +81,7 @@
 </x-app-layout>
 
 <script>
-    function likeEntry(roomEntryId) {
+    function toggleLike(roomEntryId, button) {
         fetch('{{ route('likes.store') }}', {
             method: 'POST',
             headers: {
@@ -90,10 +93,20 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // カウントを更新する処理
+                // いまいくカウントを更新する処理
                 const likeCountSpan = document.querySelector(`#like-count-${roomEntryId}`);
-                likeCountSpan.textContent = parseInt(likeCountSpan.textContent) + 1;
+                likeCountSpan.textContent = data.count;
+
+                // ボタンの色を変更する処理
+                if (data.liked) {
+                    button.classList.remove('text-indigo-500');
+                    button.classList.add('text-pink-500');
+                } else {
+                    button.classList.remove('text-pink-500');
+                    button.classList.add('text-indigo-500');
+                }
             }
-        });
+        })
+        .catch(error => {console.error('Error:', error);});
     }
 </script>

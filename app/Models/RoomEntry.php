@@ -27,8 +27,8 @@ class RoomEntry extends Model
         return $this->hasMany(Like::class);
     }
 
-    public function getLikesCountAttribute()
+    public function isLikedByUser($user_id)
     {
-        return $this->likes()->count();
+        return $this->likes()->where('user_id', $user_id)->exists();
     }
 }
