@@ -36,7 +36,7 @@ class RoomEntryController extends Controller
             'user_id' => Auth::id(),
             'user_name' => $request->user_name,
             'entry_time' => $request->entry_time,
-            'exit_time' => $request->exit_time,
+            'exit_time' => $request->exit_time ?: null // 空文字列の場合はnullを設定
         ]);
 
         return redirect()->route('room-entries.index');
