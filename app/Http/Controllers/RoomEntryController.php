@@ -30,6 +30,7 @@ class RoomEntryController extends Controller
             // 'user_id' => 'required|exists:users,id',
             'user_name' => 'required|string|max:255',
             'entry_time' => 'required|date',
+            'exit_time' => 'nullable|date'
         ]);
 
         RoomEntry::create([
