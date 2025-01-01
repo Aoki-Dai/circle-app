@@ -28,6 +28,9 @@
                                                         <a href="{{ route('room-entries.show', $entry) }}" class="hover:underline">
                                                             {{ $entry->user_name }}
                                                         </a>
+                                                        @if ($entry->updated_at->gt($entry->created_at))
+                                                            <span class="ml-2 text-sm text-gray-500">(編集済み)</span>
+                                                        @endif
                                                     </h1>
                                                     <p class="mb-1 leading-relaxed">
                                                         <span class="font-medium">入室：</span>
