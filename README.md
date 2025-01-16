@@ -1,4 +1,4 @@
-![サークルなう](https://i.imgur.com/89eliwz.jpg)
+![【技育展2024 二回戦発表資料】サークルなう](https://github.com/user-attachments/assets/0f2df399-eb7d-4532-a84c-4582e88746ed)
 # アプリの特徴
 - ボタンを押して簡単入室処理
 - 誰がいま部室にいるか分かる
