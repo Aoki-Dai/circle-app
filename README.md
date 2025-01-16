@@ -1,16 +1,27 @@
+# 部室入室管理アプリ - サークルなう
+
 ![【技育展2024 二回戦発表資料】サークルなう](https://github.com/user-attachments/assets/0f2df399-eb7d-4532-a84c-4582e88746ed)
-# アプリの特徴
+
+『サークルなう』は、ダーツサークルの部員が部室の使用状況をリアルタイムで把握できるようにするための入室管理アプリです。
+これまで、部室の利用状況は部員同士がグループLINEで報告し合う形で管理されていましたが、誰が部室にいるかや人数をすぐに確認できない不便さがありました。そこで、部員の声をもとに、リアルタイムで部室の利用状況を簡単に確認できるこのアプリを開発しました。
+[スライド（デモ動画付き）](https://geekten-2-circle-now.my.canva.site/)
+
+## アプリの特徴
+
 - ボタンを押して簡単入室処理
 - 誰がいま部室にいるか分かる
 - いまいくボタンでサークルに積極参加できる
-# 発表・展示
-- 【技育展2024】一回戦を突破し、二回戦に登壇
+
+## 発表・展示
+
+- 【技育展2024】二回戦で発表
   - [発表資料](
   https://www.canva.com/design/DAGTVkBrVs0/WU5tDMFu3Gdgk4qLuytyOw/view?utm_content=DAGTVkBrVs0&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 - 大学祭で展示
-# 開発の背景
-サークルのグループLINEで入室管理（鍵の管理）をすると、サークルの連絡と混ざってしまう、いま部室に誰がいるか分かりにくい、いま部室にいる人数が分かりにくいという課題があったため。
-# 技術スタック
+- 技育博2024 vol.6で発表予定
+
+## 技術スタック
+
 - Laravel
 - Laravel Jetstream
 - vite
@@ -18,16 +29,21 @@
 - Tailwind CSS
 - MySQL
 - Laravel vapor（LaravelをAWS Lambda上で動作）
-## モックアップ制作
+
+### モックアップ制作
+
 - figma
-# 今後の展望
+
+## 今後の展望
+
 - QRコードやNFCタグでの入室処理機能を実装する。
-## 追加機能の案
+  
+### 追加機能の案
+
 - LINEとの連携
   - 通知機能
   - メッセージで入室処理
 - 利用統計情報の表示
-
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
