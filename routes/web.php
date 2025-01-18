@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomEntryController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('welcome-lp');
@@ -30,3 +31,7 @@ Route::middleware([
         return redirect()->route('room-entries.index');
     })->name('dashboard');
 });
+
+Route::get('auth/google', [LoginController::class, 'redirectToGoogle'])->name('auth.google');
+
+Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
