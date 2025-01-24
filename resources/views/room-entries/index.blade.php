@@ -23,7 +23,7 @@
                                             {{-- <img class="object-cover object-center w-full lg:h-48 md:h-36" src="https://dummyimage.com/722x402" alt="blog"> --}}
                                             <div class="p-6">
                                               {{-- <h2 class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">CATEGORY</h2> --}}
-                                                <div class="flex justify-between items-start">
+                                                <div class="flex items-start justify-between">
                                                     <div>
                                                         <h1 class="mb-3 text-lg font-medium text-gray-900 title-font">
                                                             <a href="{{ route('room-entries.show', $entry) }}" class="hover:underline">
@@ -45,7 +45,7 @@
 
                                                             <div x-show="open"
                                                                 @click.away="open = false"
-                                                                class="absolute right-0 w-48 py-2 mt-2 bg-white rounded-md shadow-xl z-20">
+                                                                class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl">
                                                                 <a href="{{ route('room-entries.edit', $entry) }}"
                                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                                     編集
@@ -55,7 +55,7 @@
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="submit"
-                                                                            class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                                                            class="block w-full px-4 py-2 text-sm text-left text-red-600 hover:bg-gray-100">
                                                                         削除
                                                                     </button>
                                                                 </form>
@@ -79,7 +79,7 @@
                                                             現在部室にいます
                                                         </p>
                                                     @endif
-                                                </div>
+
                                               <div class="flex flex-wrap items-center">
                                                 <button
                                                     class="inline-flex items-center {{ $entry->isLikedByUser(Auth::id()) ? 'text-pink-500' : 'text-indigo-500' }} md:mb-2 lg:mb-0"
@@ -102,6 +102,7 @@
                                                     {{ $entry->likes_count ?? 0}}人がいまいくを押しました
                                                 </span>
                                               </div>
+                                            </div> {{-- p-6 --}}
                                             </div>
                                           </div>
                                         </div>
