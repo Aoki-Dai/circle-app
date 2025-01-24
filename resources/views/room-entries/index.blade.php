@@ -23,15 +23,46 @@
                                             {{-- <img class="object-cover object-center w-full lg:h-48 md:h-36" src="https://dummyimage.com/722x402" alt="blog"> --}}
                                             <div class="p-6">
                                               {{-- <h2 class="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">CATEGORY</h2> --}}
-                                                <div>
-                                                    <h1 class="mb-3 text-lg font-medium text-gray-900 title-font">
-                                                        <a href="{{ route('room-entries.show', $entry) }}" class="hover:underline">
-                                                            {{ $entry->user_name }}
-                                                        </a>
-                                                        @if ($entry->updated_at->gt($entry->created_at))
-                                                            <span class="ml-2 text-sm text-gray-500">(編集済み)</span>
-                                                        @endif
-                                                    </h1>
+                                                <div class="flex justify-between items-start">
+                                                    <div>
+                                                        <h1 class="mb-3 text-lg font-medium text-gray-900 title-font">
+                                                            <a href="{{ route('room-entries.show', $entry) }}" class="hover:underline">
+                                                                {{ $entry->user_name }}
+                                                            </a>
+                                                            @if ($entry->updated_at->gt($entry->created_at))
+                                                                <span class="ml-2 text-sm text-gray-500">(編集済み)</span>
+                                                            @endif
+                                                        </h1>
+                                                    </div>
+
+                                                    @if (Auth::id() === $entry->user_id)
+                                                        <div class="relative" x-data="{ open: false }">
+                                                            <button @click="open = !open" class="text-gray-400 hover:text-gray-600">
+                                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                                                                </svg>
+                                                            </button>
+
+                                                            <div x-show="open"
+                                                                @click.away="open = false"
+                                                                class="absolute right-0 w-48 py-2 mt-2 bg-white rounded-md shadow-xl z-20">
+                                                                <a href="{{ route('room-entries.edit', $entry) }}"
+                                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                                    編集
+                                                                </a>
+                                                                <form action="{{ route('room-entries.destroy', $entry) }}" method="POST"
+                                                                    onsubmit="return confirm('本当に削除しますか？');">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit"
+                                                                            class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                                                        削除
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                                     <p class="mb-1 leading-relaxed">
                                                         <span class="font-medium">入室：</span>
                                                         {{ $entry->entry_time->setTimezone('Asia/Tokyo')->format('m/d H:i') }}

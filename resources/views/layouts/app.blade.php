@@ -13,6 +13,7 @@
         <link rel="shortcut icon" href="{{ asset('/circle-now-logo-1.svg') }}">
 
         <!-- Scripts -->
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
