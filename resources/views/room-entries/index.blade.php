@@ -35,17 +35,18 @@
                                                         </h1>
                                                     </div>
 
+                                                    {{-- 自分の投稿に対してのみ編集・削除ボタンを表示 --}}
                                                     @if (Auth::id() === $entry->user_id)
                                                         <div class="relative" x-data="{ open: false }">
                                                             <button @click="open = !open" class="text-gray-400 hover:text-gray-600">
+                                                                {{-- ケバブメニュー --}}
                                                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                                     <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
                                                                 </svg>
                                                             </button>
 
-                                                            <div x-show="open"
-                                                                @click.away="open = false"
-                                                                class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl">
+                                                            <div x-show="open" @click.away="open = false"
+                                                            class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl">
                                                                 <a href="{{ route('room-entries.edit', $entry) }}"
                                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                                     編集
