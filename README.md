@@ -26,6 +26,7 @@
 - Laravel Jetstream
 - vite
 - node.js
+- Alpine.js
 - Tailwind CSS
 - MySQL
 - Laravel vapor（LaravelをAWS Lambda上で動作）
