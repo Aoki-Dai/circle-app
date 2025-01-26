@@ -45,18 +45,20 @@
                                                                 </svg>
                                                             </button>
 
+                                                            {{-- ケバブメニューの中身（ポップアップ） --}}
                                                             <div x-show="open" @click.away="open = false"
                                                             class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl">
+                                                                {{-- 編集ボタン --}}
                                                                 <a href="{{ route('room-entries.edit', $entry) }}"
                                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                                     編集
                                                                 </a>
+                                                                {{-- 削除ボタン --}}
                                                                 <form action="{{ route('room-entries.destroy', $entry) }}" method="POST"
                                                                     onsubmit="return confirm('本当に削除しますか？');">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit"
-                                                                            class="block w-full px-4 py-2 text-sm text-left text-red-600 hover:bg-gray-100">
+                                                                    <button type="submit" class="block w-full px-4 py-2 text-sm text-left text-red-600 hover:bg-gray-100">
                                                                         削除
                                                                     </button>
                                                                 </form>
