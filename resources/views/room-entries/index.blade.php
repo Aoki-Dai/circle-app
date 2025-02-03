@@ -38,7 +38,7 @@
                                                     {{-- 自分の投稿に対してのみ編集・削除ボタンを表示 --}}
                                                     @if (Auth::id() === $entry->user_id)
                                                         <div class="relative" x-data="{ open: false }">
-                                                            <button @click="open = !open" class="text-gray-400 hover:text-gray-600">
+                                                            <button @click="open = !open" class="p-1.5 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100/75 transition-colors duration-200">
                                                                 {{-- ケバブメニュー --}}
                                                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                                     <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
