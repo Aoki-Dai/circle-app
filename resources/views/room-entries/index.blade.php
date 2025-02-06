@@ -94,16 +94,18 @@
                                                         <path d="M12 5l7 7-7 7"></path>
                                                     </svg>
                                                 </button>
-                                                <span
-                                                    id="like-count-{{ $entry->id }}"
-                                                    class="inline-flex items-center py-1 pr-3 ml-auto mr-3 text-sm leading-none text-gray-400 lg:ml-auto md:ml-0"
-                                                >
-                                                    {{-- <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                        <circle cx="12" cy="12" r="3"></circle>
-                                                    </svg> --}}
-                                                    {{ $entry->likes_count ?? 0}}人がいまいくを押しました
-                                                </span>
+
+                                                {{-- いまいくを押した人のリスト --}}
+                                                <div class="ml-4">
+                                                    <span id="like-count-{{ $entry->id }}" class="text-sm text-gray-500">
+                                                        {{ $entry->likes_count ?? 0 }}人がいまいくを押しました
+                                                    </span>
+                                                    <div class="text-sm text-gray-500">
+                                                        @foreach($entry->likes as $like)
+                                                            <span class="inline-block mr-2">{{ $like->user->name }}</span>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
                                               </div>
                                             </div> {{-- p-6 --}}
                                             </div>
