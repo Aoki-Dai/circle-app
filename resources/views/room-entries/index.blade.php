@@ -133,9 +133,14 @@
             },
             body: JSON.stringify({ room_entry_id: roomEntryId })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
-            if (data.success) {
+            if (data.success && typeof data.count === 'number') {
                 // ボタンの色を変更する処理
                 if (data.liked) {
                     button.classList.remove('text-indigo-500');
@@ -157,8 +162,6 @@
                     userContainer.innerHTML = data.users
                         .map(user => `<span class="inline-block mr-2">${user.name}</span>`)
                         .join('');
-                } else {
-                    userContainer.innerHTML = '';
                 }
             }
         })

@@ -21,6 +21,8 @@ class RoomEntry extends Model
         'exit_time' => 'datetime',
     ];
 
+    protected $withCount = ['likes'];
+
     // RoomEntryモデルとLikeモデルの1対多のリレーションを定義する
     public function likes()
     {
