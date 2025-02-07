@@ -34,7 +34,13 @@ class LikeController extends Controller
         return response()->json([
             'success' => true,
             'liked' => true,
-            'count' => Like::where('room_entry_id', $request->room_entry_id)->count()
+            'count' => Like::where('room_entry_id', $request->room_entry_id)->count(),
+            'users' => Like::where('room_entry_id', $request->room_entry_id)
+                ->with('user')
+                ->get()
+                ->map(function ($like) {
+                    return ['name' => $like->user->name];
+                })
         ]);
     }
 }

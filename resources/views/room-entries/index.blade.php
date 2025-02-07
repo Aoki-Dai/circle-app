@@ -136,10 +136,6 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // いまいくカウントを更新する処理
-                const likeCountSpan = document.querySelector(`#like-count-${roomEntryId}`);
-                likeCountSpan.textContent = `${data.count}人がいまいくを押しました`;
-
                 // ボタンの色を変更する処理
                 if (data.liked) {
                     button.classList.remove('text-indigo-500');
@@ -148,8 +144,26 @@
                     button.classList.remove('text-pink-500');
                     button.classList.add('text-indigo-500');
                 }
+
+                // いまいくカウントとユーザーリストを更新
+                const likeCountSpan = document.querySelector(`#like-count-${roomEntryId}`);
+                const userContainer = likeCountSpan.parentElement.querySelector('div');
+
+                // カウントの更新
+                likeCountSpan.textContent = `${data.count}人がいまいくを押しました`;
+
+                // ユーザーリストの更新
+                if (data.users && Array.isArray(data.users)) {
+                    userContainer.innerHTML = data.users
+                        .map(user => `<span class="inline-block mr-2">${user.name}</span>`)
+                        .join('');
+                } else {
+                    userContainer.innerHTML = '';
+                }
             }
         })
-        .catch(error => {console.error('Error:', error);});
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 </script>
